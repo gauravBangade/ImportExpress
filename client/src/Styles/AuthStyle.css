@@ -1,0 +1,55 @@
+.form-container {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 10px;
+    flex-direction: column;
+    background-color: #d3eaf5; /* light blue */
+    background-image: linear-gradient(0deg, #d3eaf5 0%, #a0d8f1 100%); /* gradient */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.form-container form {
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    padding: 20px;
+    background-color: #ecf6fb; /* light blue */
+    border-radius: 10px; /* Rounded corners */
+}
+
+.form-container form .title {
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-family: "Playfair Display", serif;
+}
+
+.form-container form input {
+    border: none;
+    border-bottom: 1px solid #3d6cb9; /* dark blue */
+    border-radius: 0;
+}
+
+.form-container form button {
+    border: 1px solid #3d6cb9; /* dark blue */
+    border-radius: 20px; /* Rounded corners for buttons */
+    background-color: #3d6cb9; /* dark blue */
+    color: white;
+    width: 250px;
+    transition: background-color 0.3s; /* add transition for smooth hover effect */
+}
+
+.form-container form button:hover {
+    background-color: #1f3a66; /* darker blue on hover */
+    border-color: #1f3a66; /* darker blue on hover */
+}
+
+.forgot-btn {
+    background-color: #3d6cb9; /* dark blue */
+    border: 0 !important;
+    border-radius: 20px; /* Rounded corners for forgot button */
+}
+
+.forgot-btn:hover {
+    color: white !important;
+}
