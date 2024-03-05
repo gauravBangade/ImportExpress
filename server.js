@@ -4,6 +4,7 @@ import morgan from "morgan";
 import connectDB from "./config/db.js";
 import authRoutes from "./routs/authRout.js";
 import categoryRout from "./routs/categoryRout.js";
+import productRout from "./routs/productRout.js"
 
 import cors from "cors";
 //env config
@@ -22,6 +23,7 @@ app.use(morgan("dev"));
 
 app.use("/api/v1/auth", authRoutes);
 app.use("/api/v1/category", categoryRout);
+app.use("/api/v1/products", productRout);
 
 app.get("/", (req, res) => {
   res.send("<h1>Welcome to Import Express</h1>");

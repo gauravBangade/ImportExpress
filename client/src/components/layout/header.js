@@ -44,11 +44,11 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/category"
+                to="/ExpressMate"
                 className="nav-link"
                 activeClassName="active"
               >
-                Category
+                ExpressMate
               </NavLink>
             </li>
             {!auth.user ? (
