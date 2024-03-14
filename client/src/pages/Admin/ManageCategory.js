@@ -8,7 +8,7 @@ import CategoryForm from "../../components/Forms/CategoryForm";
 import { Modal } from "antd";
 
 const ManageCategory = () => {
-  const [Category, setCategorys] = useState([]);
+  const [category, setCategorys] = useState([]);
   const [name, setName] = useState();
   const [visible, setVisible] = useState(false);
   const [selected, setSelected] = useState(null);
@@ -107,7 +107,7 @@ const ManageCategory = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {categorys?.map((c) => (
+                  {category?.map((c) => (
                     <>
                       {" "}
                       <tr>

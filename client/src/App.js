@@ -18,6 +18,7 @@ import Products from "./pages/Admin/Products.js";
 import Profile from "./pages/user/Profile.js";
 import UserOrders from "./pages/user/UserOrders.js";
 import ExpressMate from "./components/ExpressMate.js";
+import UpdateProduct from "./pages/Admin/UpdateProduct.js";
 
 function App() {
   return (
@@ -40,6 +41,7 @@ function App() {
           <Route path="admin" element={<AdminDashbord />} />
           <Route path="admin/Manage-Category" element={<ManageCategory />} />
           <Route path="admin/Manage-Product" element={<ManageProduct />} />
+          <Route path="admin/Product/:slug" element={<UpdateProduct />} />
           <Route path="admin/Orders" element={<Orders />} />
           <Route path="admin/Products" element={<Products />} />
         </Route>
