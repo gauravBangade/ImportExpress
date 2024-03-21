@@ -19,12 +19,16 @@ import Profile from "./pages/user/Profile.js";
 import UserOrders from "./pages/user/UserOrders.js";
 import ExpressMate from "./components/ExpressMate.js";
 import UpdateProduct from "./pages/Admin/UpdateProduct.js";
+import Search from "./pages/Search.js";
+import ProductDetails from "./pages/ProductDetails.js";
 
 function App() {
   return (
     <>
       <Routes>
         <Route path="/" element={<Homepage />} />
+        <Route path="/search" element={<Search />} />
+        <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Policy" element={<Policy />} />

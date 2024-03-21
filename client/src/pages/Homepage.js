@@ -6,8 +6,10 @@ import { Link } from "react-router-dom";
 import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/prices";
 import { AiOutlineReload } from "react-icons/ai";
+import { useNavigate } from "react-router-dom";
 
 const Homepage = () => {
+  const navigate = useNavigate();
   const [checked, setChecked] = useState([]);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -57,7 +59,9 @@ const Homepage = () => {
   };
 
   const handleFilter = (value, id) => {
-    const newChecked = value ? [...checked, id] : checked.filter((c) => c !== id);
+    const newChecked = value
+      ? [...checked, id]
+      : checked.filter((c) => c !== id);
     setChecked(newChecked);
   };
 
@@ -106,7 +110,10 @@ const Homepage = () => {
           <h3 className="text-center">Filter by category</h3>
           <div className="d-flex flex-wrap">
             {categories.map((c) => (
-              <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>
+              <Checkbox
+                key={c._id}
+                onChange={(e) => handleFilter(e.target.checked, c._id)}
+              >
                 {c.name}
               </Checkbox>
             ))}
@@ -122,7 +129,10 @@ const Homepage = () => {
             </Radio.Group>
           </div>
           <div className="d-flex flex-column">
-            <button className="btn btn-danger" onClick={() => window.location.reload()}>
+            <button
+              className="btn btn-danger"
+              onClick={() => window.location.reload()}
+            >
               RESET FILTERS
             </button>
           </div>
@@ -131,17 +141,30 @@ const Homepage = () => {
           <h1 className="text-center">All Products</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
-              <Link key={p._id} to={`/dashboard/product/${p.slug}`} className="product-link">
-                <div className="card m-2" style={{ width: "18rem" }}>
-                  <img src={`/api/v1/products/product-photo/${p._id}`} className="card-img-top" alt={p.name} />
-                  <div className="card-body">
-                    <h5 className="card-title">{p.name}</h5>
-                    <p className="card-text">{p.price}</p>
-                    <button className="btn btn-primary ms-1">Buy</button>
-                    <button className="btn btn-secondary ms-1">Add to cart</button>
-                  </div>
+              <div key={p._id} className="card m-2" style={{ width: "18rem" }}>
+                <Link to={`/product/${p.slug}`} className="product-link">
+                  <img
+                    src={`/api/v1/products/product-photo/${p._id}`}
+                    className="card-img-top"
+                    alt={p.name}
+                    width={100}
+                    height={300}
+                  />
+                </Link>
+                <div className="card-body">
+                  <h5 className="card-title">{p.name}</h5>
+                  <p className="card-text">{p.price}</p>
+                  <button
+                    className="btn btn-primary ms-1"
+                    onClick={() => navigate(`/Contact`)}
+                  >
+                    Buy
+                  </button>
+                  <button className="btn btn-secondary ms-1">
+                    Add to cart
+                  </button>
                 </div>
-              </Link>
+              </div>
             ))}
           </div>
           <div className="m-2 p-3">

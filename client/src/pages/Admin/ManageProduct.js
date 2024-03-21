@@ -19,7 +19,6 @@ const ManageProduct = () => {
   const [shipping, setShipping] = useState("");
   const [description, setDescription] = useState("");
 
-
   // get all category
   const getAllCategory = async () => {
     try {
@@ -32,7 +31,7 @@ const ManageProduct = () => {
       toast.error("something Went Wrong in get all category");
     }
   };
- // create product event 
+  // create product event
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
@@ -43,16 +42,13 @@ const ManageProduct = () => {
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
-      const { data } = axios.post(
+      const { data } = await axios.post(
         "/api/v1/products/create-product",
         productData
       );
-      if (data?.success) {
-        toast.error(data?.message);
-      } else {
-        toast.success("Product Created Successfully");
-        navigate("/dashboard/admin/products");
-      }
+
+      toast.success("Product Created Successfully");
+      navigate("/dashboard/admin/products");
     } catch (error) {
       console.log(error);
       toast.error("something went wrong");
@@ -166,6 +162,12 @@ const ManageProduct = () => {
               <div className="mb-3">
                 <button className="btn btn-primary" onClick={handleCreate}>
                   CREATE PRODUCT
+                </button>
+                <button
+                  className="btn btn-primary ms-1"
+                  onClick={() => navigate(`/dashboard/admin/products`)}
+                >
+                  Products
                 </button>
               </div>
             </div>

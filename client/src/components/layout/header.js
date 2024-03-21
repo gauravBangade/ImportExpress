@@ -2,6 +2,7 @@ import React from "react";
 import { NavLink, Link } from "react-router-dom";
 import { GiCargoShip } from "react-icons/gi";
 import { useAuth } from "../../context/Auth";
+import SearchBar from "../Forms/SerchBar";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
@@ -32,6 +33,7 @@ const Header = () => {
             <GiCargoShip /> Import Express
           </Link>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
+            <SearchBar/>
             <li className="nav-item">
               <NavLink
                 to="/"

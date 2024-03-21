@@ -7,7 +7,8 @@ import AdminMenu from "../../components/layout/AdminMenu";
 
 const Products = () => {
   const [products, setProducts] = useState();
-  const getAllProducts = async (req, res) => {
+
+  const getAllProducts = async () => {
     try {
       const { data } = await axios.get("/api/v1/products/get-products");
       setProducts(data?.products);
@@ -27,7 +28,7 @@ const Products = () => {
           <div className="col-md-3">
             <AdminMenu />
           </div>
-          <div className="col-md-9 ">
+          <div className="col-md-9">
             <h1 className="text-center">All Products List</h1>
             <div className="d-flex flex-wrap">
               {products?.map((p) => (

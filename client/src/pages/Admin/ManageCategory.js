@@ -129,7 +129,7 @@ const ManageCategory = () => {
                               handleDelete(c._id);
                             }}
                           >
-                            Deleat
+                            Delete
                           </button>
                         </td>
                       </tr>
