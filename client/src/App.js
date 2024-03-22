@@ -21,6 +21,7 @@ import ExpressMate from "./components/ExpressMate.js";
 import UpdateProduct from "./pages/Admin/UpdateProduct.js";
 import Search from "./pages/Search.js";
 import ProductDetails from "./pages/ProductDetails.js";
+import CartPage from "./pages/CartPage";
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/product/:slug" element={<ProductDetails />} />
         <Route path="/About" element={<About />} />
+        <Route path="/cart" element={<CartPage />} />
         <Route path="/Contact" element={<Contact />} />
         <Route path="/Policy" element={<Policy />} />
         <Route path="/Register" element={<Register />} />

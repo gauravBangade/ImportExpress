@@ -3,9 +3,13 @@ import { NavLink, Link } from "react-router-dom";
 import { GiCargoShip } from "react-icons/gi";
 import { useAuth } from "../../context/Auth";
 import SearchBar from "../Forms/SerchBar";
+import { useCart } from "../../context/Cart";
+import { Badge } from "antd";
 
 const Header = () => {
   const [auth, setAuth] = useAuth();
+  const [cart] = useCart();
+
   const handleLogout = () => {
     setAuth({
       ...auth,
@@ -101,11 +105,13 @@ const Header = () => {
                 </li>
               </>
             )}
-            <li className="nav-item">
-              <NavLink to="/cart" className="nav-link">
-                Cart(0)
-              </NavLink>
-            </li>
+             <li className="nav-item">
+                <NavLink to="/cart" className="nav-link">
+                  <Badge count={cart?.length} showZero offset={[10, -5]}>
+                    Cart
+                  </Badge>
+                </NavLink>
+              </li>
           </ul>
         </div>
       </div>

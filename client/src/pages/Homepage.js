@@ -7,9 +7,11 @@ import { Checkbox, Radio } from "antd";
 import { Prices } from "../components/prices";
 import { AiOutlineReload } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../context/Cart";
 
 const Homepage = () => {
   const navigate = useNavigate();
+  const [cart, setCart ] = useCart();
   const [checked, setChecked] = useState([]);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -160,9 +162,19 @@ const Homepage = () => {
                   >
                     Buy
                   </button>
-                  <button className="btn btn-secondary ms-1">
-                    Add to cart
-                  </button>
+                  <button
+                      className="btn btn-dark ms-1"
+                      onClick={() => {
+                        setCart([...cart, p]);
+                        localStorage.setItem(
+                          "cart",
+                          JSON.stringify([...cart, p])
+                        );
+                        toast.success("Item Added to cart");
+                      }}
+                    >
+                      ADD TO CART
+                    </button>
                 </div>
               </div>
             ))}
