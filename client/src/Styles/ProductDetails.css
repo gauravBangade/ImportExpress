@@ -12,6 +12,16 @@
   .product-details-info h6 {
     margin-bottom: 20px !important;
   }
+
+   
+  .product-details .card img:hover {
+    transform: scale(0.9);
+  }
+  
+  .product-details .card-img-top {
+    height: 300px !important;
+  }
+
   
   .similar-products .card {
     background-color: rgba(128, 128, 128, 0.097);

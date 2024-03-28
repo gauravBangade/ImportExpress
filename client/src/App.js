@@ -22,6 +22,7 @@ import UpdateProduct from "./pages/Admin/UpdateProduct.js";
 import Search from "./pages/Search.js";
 import ProductDetails from "./pages/ProductDetails.js";
 import CartPage from "./pages/CartPage";
+import Knowledge from "./pages/Admin/knowledge.js";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="admin/Product/:slug" element={<UpdateProduct />} />
           <Route path="admin/Orders" element={<Orders />} />
           <Route path="admin/Products" element={<Products />} />
+          <Route path="admin/Knowledge" element={<Knowledge />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
       </Routes>

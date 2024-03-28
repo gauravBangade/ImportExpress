@@ -8,10 +8,11 @@ import { Prices } from "../components/prices";
 import { AiOutlineReload } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/Cart";
+import "../Styles/HomePage.css";
 
 const Homepage = () => {
   const navigate = useNavigate();
-  const [cart, setCart ] = useCart();
+  const [cart, setCart] = useCart();
   const [checked, setChecked] = useState([]);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -110,8 +111,8 @@ const Homepage = () => {
       <div className="row">
         <div className="col-md-2">
           <h3 className="text-center">Filter by category</h3>
-          <div className="d-flex flex-wrap">
-            {categories.map((c) => (
+          <div className="d-flex flex-column">
+            {categories?.map((c) => (
               <Checkbox
                 key={c._id}
                 onChange={(e) => handleFilter(e.target.checked, c._id)}
@@ -145,36 +146,38 @@ const Homepage = () => {
             {products?.map((p) => (
               <div key={p._id} className="card m-2" style={{ width: "18rem" }}>
                 <Link to={`/product/${p.slug}`} className="product-link">
-                  <img
-                    src={`/api/v1/products/product-photo/${p._id}`}
-                    className="card-img-top"
-                    alt={p.name}
-                    width={100}
-                    height={300}
-                  />
+                  <div className="card m-2">
+                    <img
+                      src={`/api/v1/products/product-photo/${p._id}`}
+                      className="card-img-top"
+                      alt={p.name}
+                      width={100}
+                      height={300}
+                    />
+                  </div>
                 </Link>
                 <div className="card-body">
                   <h5 className="card-title">{p.name}</h5>
                   <p className="card-text">{p.price}</p>
                   <button
                     className="btn btn-primary ms-1"
-                    onClick={() => navigate(`/Contact`)}
+                    onClick={() => navigate(`/product/${p.slug}`)}
                   >
-                    Buy
+                    Details
                   </button>
                   <button
-                      className="btn btn-dark ms-1"
-                      onClick={() => {
-                        setCart([...cart, p]);
-                        localStorage.setItem(
-                          "cart",
-                          JSON.stringify([...cart, p])
-                        );
-                        toast.success("Item Added to cart");
-                      }}
-                    >
-                      ADD TO CART
-                    </button>
+                    className="btn btn-dark ms-1"
+                    onClick={() => {
+                      setCart([...cart, p]);
+                      localStorage.setItem(
+                        "cart",
+                        JSON.stringify([...cart, p])
+                      );
+                      toast.success("Item Added to cart");
+                    }}
+                  >
+                    ADD TO CART
+                  </button>
                 </div>
               </div>
             ))}

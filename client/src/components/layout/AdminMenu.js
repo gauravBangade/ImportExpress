@@ -32,12 +32,12 @@ const AdminMenu = () => {
         >
           Orders
         </NavLink>
-        {/* <NavLink
-          to="/dashboard/admin/users"
+        { <NavLink
+          to="/dashboard/admin/knowledge"
           className="list-group-item list-group-item-action"
         >
-          Users
-        </NavLink> */}
+          knowledge  
+        </NavLink> }
       </div>
     </div>
   );

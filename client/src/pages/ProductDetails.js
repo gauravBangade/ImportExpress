@@ -1,12 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Layout from "../components/layout/layout";
 import axios from "axios";
+import toast from "react-hot-toast";
 import { useParams, useNavigate } from "react-router-dom";
 import "../Styles/ProductDetails.css";
+import { useCart } from "../context/Cart";
 
 const ProductDetails = () => {
   const params = useParams();
   const navigate = useNavigate();
+  const [cart, setCart] = useCart();
   const [product, setProduct] = useState({});
   const [relatedProducts, setRelatedProducts] = useState([]);
 
@@ -40,15 +43,16 @@ const ProductDetails = () => {
   return (
     <Layout>
       <div className="row container product-details">
-        <div className="col-md-6">
+        <div className="col-md-5">
+          <div className="card m-2">
           <img
             src={`/api/v1/products/product-photo/${product._id}`}
             className="card-img-top"
             width={100}
-            height={300}
+            height={250}
             alt={product.name}
-            
           />
+          </div>
         </div>
         <div className="col-md-6 product-details-info">
           <h1 className="text-center">Product Details</h1>
@@ -63,7 +67,16 @@ const ProductDetails = () => {
             })}
           </h6>
           <h6>Category : {product?.category?.name}</h6>
-          <button class="btn btn-secondary ms-1">ADD TO CART</button>
+          <button
+            className="btn btn-dark ms-1"
+            onClick={() => {
+              setCart([...cart, product]);
+              localStorage.setItem("cart", JSON.stringify([...cart, product]));
+              toast.success("Item Added to cart");
+            }}
+          >
+            ADD TO CART
+          </button>
         </div>
       </div>
       <hr />
