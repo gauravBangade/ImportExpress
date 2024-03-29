@@ -5,8 +5,8 @@ import connectDB from "./config/db.js";
 import authRoutes from "./routs/authRout.js";
 import categoryRout from "./routs/categoryRout.js";
 import productRout from "./routs/productRout.js";
-import bodyParser from 'body-parser';
 import cors from "cors";
+import formidable from 'express-formidable';
 
 //env config
 dotenv.config();
@@ -14,11 +14,12 @@ dotenv.config();
 //database config
 connectDB();
 
-//rest boject
+//rest object
 const app = express();
 
-app.use(bodyParser.json({ limit: "50mb" }));
-app.use(bodyParser.urlencoded({ limit: "50mb", extended: true }));
+// Parse form data
+app.use(formidable());
+
 //middleware
 app.use(cors());
 app.use(express.json());
@@ -32,7 +33,7 @@ app.get("/", (req, res) => {
   res.send("<h1>Welcome to Import Express</h1>");
 });
 
-const port = process.env.port;
+const port = process.env.port || 3000;
 
 app.listen(port, () => {
   console.log(`server running on ${port}`);
