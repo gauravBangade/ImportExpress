@@ -1,0 +1,46 @@
+/* Update the CSS to use unique class names */
+.about-container {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+    color: #333;
+  }
+  
+  .about-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .about-header {
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  
+  .about-header h1 {
+    color: #333;
+    font-size: 2em;
+  }
+  
+  .about-main {
+    margin-bottom: 30px;
+  }
+  
+  .about-main h2 {
+    color: #333;
+    font-size: 1.5em;
+  }
+  
+  .about-main p {
+    line-height: 1.5;
+  }
+  
+  .about-section {
+    margin-bottom: 30px;
+  }
+  
+  .about-section:last-child {
+    margin-bottom: 0;
+  }
+  

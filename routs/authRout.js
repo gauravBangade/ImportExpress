@@ -10,7 +10,11 @@ import {
   orderStatusController,
 } from "../controler/registerControler.js";
 import { isAdmin, requireSignIn } from "../middleware/authMiddleware.js";
-import { deleteTopicController, getTopicController, knowledgeController } from "../controler/chatController.js";
+import {
+  deleteTopicController,
+  getTopicController,
+  knowledgeController,
+} from "../controler/chatController.js";
 
 const router = express.Router();
 
@@ -47,9 +51,7 @@ router.put(
 );
 
 router.post("/knowledge", requireSignIn, isAdmin, knowledgeController);
-
-router.get('/get-topic', requireSignIn, isAdmin, getTopicController);
-
+router.get("/get-topic", requireSignIn, isAdmin, getTopicController);
 router.delete(
   "/delete-topic/:id",
   requireSignIn,

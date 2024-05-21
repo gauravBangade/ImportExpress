@@ -10,7 +10,7 @@ const UserMenu = () => {
               to="/dashboard/user/"
               className="list-group dashboard-menu "
             >
-              <h4> Dashbord</h4>
+              <h4> Dashboard</h4>
             </NavLink>
             <NavLink
               to="/dashboard/user/Profile"

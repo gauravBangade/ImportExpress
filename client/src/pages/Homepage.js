@@ -117,8 +117,7 @@ const Homepage = () => {
                 key={c._id}
                 onChange={(e) => handleFilter(e.target.checked, c._id)}
               >
-                {c.name}
-              </Checkbox>
+              {c.name}</Checkbox>
             ))}
           </div>
           <h3 className="text-center mt-4">Filter By Price</h3>

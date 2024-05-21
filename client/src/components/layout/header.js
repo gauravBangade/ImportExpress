@@ -37,7 +37,7 @@ const Header = () => {
             <GiCargoShip /> Import Express
           </Link>
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
-            <SearchBar/>
+            <SearchBar />
             <li className="nav-item">
               <NavLink
                 to="/"
@@ -50,9 +50,10 @@ const Header = () => {
             </li>
             <li className="nav-item">
               <NavLink
-                to="/ExpressMate"
+                to="http://localhost:8501"
                 className="nav-link"
                 activeClassName="active"
+                target="_blank"
               >
                 ExpressMate
               </NavLink>
@@ -105,13 +106,13 @@ const Header = () => {
                 </li>
               </>
             )}
-             <li className="nav-item">
-                <NavLink to="/cart" className="nav-link">
-                  <Badge count={cart?.length} showZero offset={[10, -5]}>
-                    Cart
-                  </Badge>
-                </NavLink>
-              </li>
+            <li className="nav-item">
+              <NavLink to="/cart" className="nav-link">
+                <Badge count={cart?.length} showZero offset={[10, -5]}>
+                  Cart
+                </Badge>
+              </NavLink>
+            </li>
           </ul>
         </div>
       </div>

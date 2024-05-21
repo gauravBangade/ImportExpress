@@ -2,6 +2,7 @@ import React from "react";
 import { useSearch } from "../../context/search";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import "../../Styles/SerchBar.css";
 
 const SearchBar = () => {
   const [values, setValues] = useSearch();
@@ -34,9 +35,9 @@ const SearchBar = () => {
           value={values.keyword}
           onChange={(e) => setValues({ ...values, keyword: e.target.value })}
         />
-        <button className="btn btn-outline-success" type="submit">
+        {/*  <button className="btn btn-outline-success" type="submit">
           Search
-        </button>
+        </button> */}
       </form>
     </div>
   );

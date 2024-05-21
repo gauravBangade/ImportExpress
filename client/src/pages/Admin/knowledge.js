@@ -27,12 +27,17 @@ const Knowledge = () => {
   const handleCreate = async (e) => {
     e.preventDefault();
     try {
-      const knowledgeData = new FormData();
-      knowledgeData.append("name", name);
-      knowledgeData.append("description", description);
+      const formData = new FormData();
+      formData.append("name", name);
+      formData.append("description", description);
       const { data } = await axios.post(
         "/api/v1/auth/knowledge",
-        knowledgeData
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
       );
       toast.success("Successful");
       getAllTopics();
@@ -41,6 +46,7 @@ const Knowledge = () => {
       toast.error("Something went wrong");
     }
   };
+  
   const handleDelete = async (id) => {
     try {
       const { data } = await axios.delete(`/api/v1/auth/delete-topic/${id}`);

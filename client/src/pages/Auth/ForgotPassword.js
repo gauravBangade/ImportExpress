@@ -3,6 +3,8 @@ import Layout from "../../components/layout/layout";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import "../../Styles/forgotpass.css";
+
 const apiUrl = process.env.REACT_APP_API || "http://localhost:8080";
 
 const ForgotPassword = () => {
